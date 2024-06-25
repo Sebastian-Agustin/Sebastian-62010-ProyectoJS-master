@@ -1,56 +1,71 @@
-const productos = [
-   {nombre:"Remera", precio:15000},
-   {nombre:"Buzo", precio: 20000},
-   {nombre:"Gorra", precio: 15000},
-   {nombre:"Accesorios ", precio: 4000},
-]
-let carrito = 0
-let usuario = prompt("Desea comprar algo? responde con si o no")
+let confirmacion = confirm("Para seguir con la pagina es necesario aceptar los terminos y condiciones")
+while(confirmacion == false){
+  confirmacion = confirm("Para seguir con la pagina es necesario aceptar los terminos y condiciones")
+}
+let nombreDelUsuario = prompt("Un gusto! Ingresa tu nombre Aqui!")
 
-while(usuario!="si" && usuario!="no"){
-   alert("Porfavor responde con si o con no")
-   usuario = prompt("Desea comprar algo? Responde con si o no")
+const bienvenida =(nombreDelUsuario) =>{
+  let saludo = alert("Bienvenido " + nombreDelUsuario + "\n" + "Nuestra tienda de ropa GUUST!!!"+ "\n"+ "La mejor ropa la encontras aca.!")
+  return saludo
+}
+bienvenida(nombreDelUsuario)
+const pregunta = prompt(nombreDelUsuario+"\n"+" Lo invitamos a mirar nuestros descuentos% en nuestra tienda!" +"\n"+"Escriba TIENDA si quiere ver nuestro catalogo de ropa")
+const productos=[]
+const agregarProducto = ()=>{
+  const id = prompt("Ingresa el nombre del producto")
+  const medida =prompt("ingresa el talle.")
+  const lugar =prompt("ingresa el lugar de envio")
+  const producto ={id:id,medida:medida,lugar:lugar}
+  productos.push(producto)
+}
+const tienda = prompt("escriba tienda si quiere ver nuestras secciones de ropa ")
+while(pregunta=="TIENDA"){
+  
 }
 
+// while(tienda =="tienda"){
 
-if(usuario=="si"){
-   alert("Estos son los productos ")
-   let todosLosProductos = productos.map((producto) => producto.nombre + " " + producto.precio + "$")
- alert(todosLosProductos.join(" - "))
-} else if(usuario == "no"){
-   alert("Vuelva pronto!")
-}
+  
+//   }
 
-while(usuario !="no"){
-   let producto = prompt("Agrega el producto a tu carrito")
-   let precio = 0 
-   if((producto == "remera"|| producto=="buzo" || producto=="gorra"|| producto == "accesorios")){
-   switch(producto){
-      case "remera":
-      precio = 15000
-      break
-      case "buzo":
-      precio= 20000
-      break
-      case "gorra":
-      precio = 15000
-      break
-      case "accesorios":
-      precio = 4000
-      break
-   }
-   let cantidadDeProductos = parseInt(prompt("Cuantas unidades quiere llevar?"))
 
-   carrito.push({producto, cantidadDeProductos, precio})
-}else{
-   alert("no tenemos en stock ese producto")
-}
-usuario =prompt("Quiere agregar algun producto mas ? Pon si o no")
-while(usuario==="no"){
- alert("Gracias por su compra, Vuelva pronto!")
- carrito.forEach((carritoFinal) => {
-  alert(`producto: ${carritoFinal.producto}, unidades: ${carritoFinal.cantidadDeProductos}, 'total a pagar'${carritoFinal.cantidadDeProductos * carritoFinal.precio}`)
- })
- break
- } 
-}
+// let seccionDeRopa= prompt("Ingrese el numero del producto"+"\n"+"1-Remeras"+"\n"+"2-Pantalones"+"\n"+"3-Buzos"+"\n"+"4-Gorras")
+
+// if(seccionDeRopa =="1"){
+//   alert("Estan son las remeras en stock" + "\n"+"1-Remera De Gust "+"\n"+"2-Remera de Gojo "+ "\n"+ "3-Remera de Fullmetal Alchemist ")
+//  agregarProducto()
+//  }
+//  else if(seccionDeRopa=="2"){
+//    alert("Estos son los pantalones en stock"+"\n"+"Pantalón cargo" +"\n"+"Pantalón mom jean"+"\n")
+//    agregarProducto()
+//  }
+//  else if(seccionDeRopa=="3"){
+//   alert("Estos son los  en stock"+"\n"+"Oversize con Goku" +"\n"+"Buzo Oversize Baki"+"\n"+"Buzo Oversize Pokemon")
+//  agregarProducto()
+//  }else if(seccionDeRopa=="4"){
+//   alert("Estos son los  en stock"+"\n"+"Gorras Personalizadas" +"\n"+"Gorras Cerradas"+"\n")
+//   agregarProducto()
+//  }else{
+//   alert("Los datos que ingresaste no son los correctos")
+//  }
+
+
+// // for (const i of productos) {
+// //   alert("a continuacion los productos")
+// //     alert("estos son los productos " + i)
+// // }
+// // pregunta = confirm(nombreDelUsuario+" Desea ver nuevamente la tienda? " + "\n" + "Porfavor confirme")
+// // }
+
+
+
+
+
+
+  // const agregarProducto = ()=>{
+  //   const id = prompt("Ingresa el nombre del producto")
+  //   const medida =prompt("ingresa el talle.")
+  //   const lugar =prompt("ingresa el lugar de envio")
+  //   const producto ={id:id,medida:medida,lugar:lugar}
+  //   productos.push(producto)
+  // }
