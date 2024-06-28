@@ -38,5 +38,6 @@ if(elimanarProducto == "Si" || elimanarProducto == "si"){
  confirmacionTienda = confirm("Desea continuar agregando productos? " +nombreDelUsuario+" "+ "confirme")
 
 }
+//commmit
 
 
