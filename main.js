@@ -38,27 +38,35 @@ function agregarAlCarrito(id){
   }
   carrito.push(productoEncontrado)
   console.log(carrito)
+  localStorage.setItem("CompraPendientesDelCarrito", JSON.stringify(carrito))
 }
 
 
 function eliminarDelCarrito(id) {
   const productoABuscar = carrito.find(el => el.id === parseInt(id));
   if (productoABuscar) {
-    if (productoABuscar.cantidad > 1) {
+    if (productoABuscar.cantidad > 0) {
       productoABuscar.cantidad -= 1;
     } else {
       carrito = carrito.filter(el => el.id !== parseInt(id));
     }
   }
-}
-function eliminarTodoElCarrito() {
-  carrito = [];
+  carrito.push(productoABuscar)
+  console.log(carrito)
 }
 
-eliminarDelCarrito(5)
-console.log(carrito)
 
-    console.dir(e)
-}
-funcionDeEventos("click",funcionAgregadoraDeEventosAlCarrito, "click")
+const carritoDeDoom = document.getElementById("carrito")
+const cartCarrito = document.createElement("div")
+carritoDeDoom.appendChild(cartCarrito)
+cartCarrito.innerHTML=
+`
+<div>
+  <button class"comprar">Comprar</button>
+  <button class"eliminar">Elimanar Del Carrito</button>
+  </div>`
+
+const btnEvento0 = document.querySelector(".comprar")
+const btnEvento1 = document.querySelector(".eliminar")
+
 
