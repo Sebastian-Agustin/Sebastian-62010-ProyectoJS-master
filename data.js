@@ -9,7 +9,7 @@ const productos =[
     },
     {
       id:1,
-      img:"img/Productos/buzos/buzogoku.webp",
+      img:"img/Productos/buzos/buzosGoku.webp",
       nombre:"Buzo de Goku",
       precio: 60000,
       cantidad:1
@@ -65,23 +65,24 @@ const productos =[
     },
     { //seccion gorras
         id:9,
-        img:"img/Productos/gorras/gorritafantasmita.webp",
+        img:"img/Productos/gorras/gorrafantasmita.webp",
         nombre:"Gorra con un Fantasmita",
         precio: 20000,
         cantidad:1
     },
     {
         id:10,
-        img:"img/Productos/gorras/gorrahonguito.webp",
+        img:"img/Productos/gorras/gorrahonguitos.webp",
         nombre:"Gorra con un Honguito",
         precio: 13000,
         cantidad:1
     },
     {
         id:11,
-        img:"img/Productos/gorras/gorritamando.webp",
+        img:"img/Productos/gorras/gorramando.webp",
         nombre:"Gorra con un mando",
         precio: 15000,
         cantidad:1
     } 
 ] 
+
