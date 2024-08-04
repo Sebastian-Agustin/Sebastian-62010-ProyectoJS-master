@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Markazi+Text:wght@400..700&display=swap");
+ 
+*{ margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Markazi Text", serif;
+  font-weight: 700;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    background-color:#FFFFFF;
+    padding: 1.8rem;
+}
+
+header nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: filter(20px);
+
+}
+nav ul{
+    display:flex ;
+    gap: 10px;
+}
+
+
+
+
+
+
+
+
+/*
+CONTENEDOR GRID DE MAIN 
+*/
+
+.contenedor-grid{
+    display: grid;
+    grid-template-rows: 1fr ;
+    grid-template-columns: 50% 50%;
+    padding-top: 1.5rem;
+    padding-left: 1.8rem;
+    background-color: rgb(148, 71, 71);
+}
+
+
+
+/*
+Cuerpo de las carts
+*/
+
+.boton-carrito-ver-carrito{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.body-cart{
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.945);
+    border-radius: 9px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+     align-items: center;
+   
+}
+
+
+
+
+.img-carts img{
+  width: 50px;
+}
+
+.description-carts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: whitesmoke;
+    padding: 30px;
+   
+    
+}
+
+.description-carts .boton-carts button{
+    padding: 10px;
+    width: 200px; 
+    
+}
+
+/*
+    SECCION CARRITO
+*/
+
+.header-carrito{
+    background-color:#FFFFFF;
+    
+}
+
+
+
+/*DIV CARRITO */
+
+/* H1-CARRITO*/
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro translúcido */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegurarse de que el modal esté por encima de otros contenidos */
+}
+
+/* Mostrar el modal */
+.modal.show {
+    display: flex;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh; /* Altura máxima del modal */
+    overflow: auto
+}
+
+/* Estilos para el icono de cierre */
+.cerrar-carrito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.modal-body{
+ flex-direction: column;
+}
+
+.img-carrito img{
+    height: 80px;
+}
+
+.data-carrito{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
