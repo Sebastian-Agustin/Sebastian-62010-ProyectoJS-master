@@ -1,4 +1,6 @@
-//intaciamos productos
+
+ 
+    //intaciamos productos
 class Productos {
   constructor(id, nombre, precio, img, cantidad){
     this.id=id
@@ -82,6 +84,10 @@ const fetchProductDetails = async () => {
     el.img,
     el.cantidad
   ))
+  iterarDoom(productos)
+};
+fetchProductDetails()
+
   iterarDoom(productos)
 };
 fetchProductDetails()
