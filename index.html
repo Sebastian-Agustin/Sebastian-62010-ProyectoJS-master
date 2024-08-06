@@ -8,42 +8,37 @@
     <title>Gust</title>
 </head>
 <body>
-  <div class="container">
     <header>
         <nav class="nav-bar">
-              <a class="boton-menu" href="index.html">
+            <a class="boton-menu" href="index.html">
                 <img src="img/logo/logo.png" alt="Bootstrap" width="40" height="50">
-              </a>
+            </a>
             <div class="menu-content">
-              <ul>
-                <li class="boton-menu">
-                  <a href="">Productos</a>
-                </li>
-                <li class="boton-menu">
-                  <a href="#">Nosotros</a>
-                </li>
-                <li>
-                  <button id="boton-ver-carrito" class="boton-menu" href="carrito.html">Carrito<i class="bi bi-cart"></i><span>0</span></button>
-                </li>
-            </ul>
+                <ul>
+                    <li class="boton-menu">
+                        <a href="">Productos</a>
+                    </li>
+                    <li class="boton-menu">
+                        <a href="#">Nosotros</a>
+                    </li>
+                    <li>
+                        <button id="boton-ver-carrito" class="boton-menu nav-carrito">Carrito<i class="bi bi-cart"></i><span>0</span></button>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
+
     <main>
-      <div id="modal-main">
-        
-      </div>
-      <div id="contenedor-productos" class="contenedor-grid">
-
-
-      </div>
-      
+        <div id="modal-main"></div>
+        <div id="contenedor-productos" class="contenedor-grid"></div>
     </main>
+
     <footer>CopyRight</footer>
-  </div>
-    <script src="./js/carrito.js"></script>
-    <script src="./js/app.js" ></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./js/carrito.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
-
