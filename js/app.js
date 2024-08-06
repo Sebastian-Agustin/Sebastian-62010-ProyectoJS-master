@@ -1,87 +1,104 @@
 //intaciamos productos
 class Productos {
   constructor(id, nombre, precio, img, cantidad){
-    this.id=id
-    this.nombre=nombre
-    this.precio=precio
-    this.img=img
-    this.cantidad=cantidad
+    this.id = id;
+    this.nombre = nombre;
+    this.precio = precio;
+    this.img = img;
+    this.cantidad = cantidad;
   }
 }
 
+// Arrays
+let productos = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+// Nodos
+const contendorDeCarts = document.getElementById("contenedor-productos");
+const agregarbotones = document.getElementsByClassName("btn");
 
-//arrays
-let productos = []
-
-let carrito =  JSON.parse(localStorage.getItem("carrito")) || []
-
-
-/////////////////////
-/////////////////////// en esta parte va los nodos
-
-const contendorDeCarts = document.getElementById("contenedor-productos")//NODO CONTENEDOR DE CARTS
-const agregarbotones = document.getElementsByClassName("btn") // ELEMENTOS CLASS HTMLCOLETION
-
-
-const agregadoraDeEventos = () =>{
- const array = Array.from(agregarbotones) //html coletion los tranformo en array
-  // uso la orden superior de forech, por cada elemento voy a iterar esta funcion
-  //el seria, a los elementos del array que voy a iterar y le paso la funcion. Si es un objeto. si es un nodo puedo traer metodos que tienen los nodos
+const agregadoraDeEventos = () => {
+  const array = Array.from(agregarbotones); // Transformo HTMLCollection en array
+  
   array.forEach(el => {
-    el.addEventListener("click", (e)=>{
-      const productoNombre = e.target.parentElement.parentElement.children[0].innerText //aca estoy sacando el (nodo. un metodo.target.parentelement.children[0].inneText)
-      productoCarrito = productos.find(producto => producto.nombre === productoNombre) // TRAIGO EL OBJETO CON EL METODO FIND        
+    el.addEventListener("click", (e) => {
+      const productoNombre = e.target.parentElement.parentElement.querySelector(".description-carts p").innerText;
+      // Aca estoy sacando el (nodo. un metodo.target.parentElement.children[0].innerText)
+      const productoCarrito = productos.find(producto => producto.nombre === productoNombre); // TRAIGO EL OBJETO CON EL METODO FIND        
+
       if (productoCarrito) {
-        carrito.push(productoCarrito);
+        // Verificar si el producto ya está en el carrito
+        const productoEnCarrito = carrito.find(item => item.nombre === productoCarrito.nombre);
+        
+        if (productoEnCarrito) {
+          // Si ya está en el carrito, aumentar la cantidad
+          productoEnCarrito.cantidad += 1;
+        } else {
+          // Si no está en el carrito, agregarlo con cantidad 1
+          carrito.push({ ...productoCarrito, cantidad: 1 });
+        }
+
         localStorage.setItem("carrito", JSON.stringify(carrito));
         console.log(carrito);
-      } else {
-        console.error("Producto no encontrado:", productoNombre);
-      }                                               
-    } )
-  })
 
+        // Mostrar alerta de éxito
+        Swal.fire({
+          title: "Producto agregado!",
+          text: "El producto ha sido añadido al carrito.",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
+      }
+    });
+  });
 }
 
-
-//crear carts desde js //le paso un array
-const iterarDoom = (productos) =>{
- 
+// Crear carts desde JS
+const iterarDoom = (productos) => {
   productos.forEach(el => {
-    const bodyCart = document.createElement("div")
-    bodyCart.classList.add("bodycart")
-    bodyCart.innerHTML+=`
-    <img class="img-carts" src="${el.img}" alt="">
-    <div class="description-carts">    
+    const bodyCart = document.createElement("div");
+    bodyCart.classList.add("bodycart");
+    bodyCart.innerHTML += `
+      <div class="contenedor-img-carts">
+        <img class="img-carts" src="${el.img}" alt="">
+      </div>
+      <div class="description-carts">    
         <p>${el.nombre}</p>
         <p>${el.precio}$</p>
-      <div class="boton-carts">
-        <button class="btn" ${el.id}>Comprar</button>
       </div>
-    </div>
-    `
-    contendorDeCarts.append(bodyCart)
-  
+      <div class="boton-carts">
+        <button class="btn" id="producto-${el.id}">Comprar</button>
+      </div>
+    `;
+    contendorDeCarts.append(bodyCart);
   });
-
-  agregadoraDeEventos()
+  agregadoraDeEventos();
 }
 
+// Consumo JSON e instancio la clase productos
 const fetchProductDetails = async () => {
   const url = `js/data.json`;
- 
-    const response = await fetch(url);
-    const data = await response.json();
+  const response = await fetch(url);
+  const data = await response.json();
     
-   
-    productos = data.map(el => new Productos(
+  productos = data.map(el => new Productos(
     el.id,
     el.nombre,
     el.precio,
     el.img,
     el.cantidad
-  ))
-  iterarDoom(productos)
+  ));
+  iterarDoom(productos);
 };
 fetchProductDetails()
+
+
+
