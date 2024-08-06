@@ -26,7 +26,7 @@
      "id":3,
      "nombre":"Remera de Hinata",
      "precio":20000,
-     "img":"/img/Productos/remeras/remeraHinata.webp",
+     "img":"img/Productos/remeras/remeraHinata.webp",
      "cantidad": 1
     },
 
